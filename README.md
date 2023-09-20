@@ -2,5 +2,7 @@
 
 Contiene sintaxis markdown
  <p align="left">
-![tumblr_pnruev3of21xawcqko1_1280](https://github.com/MartinAmor04/DWES/assets/145535289/f9066941-139e-4d8a-a568-99abdf1a46cf)
+  <img src="https://github.com/MartinAmor04/DWES/assets/145535289/d4650faf-4539-4503-980d-61921bd60dd1">  
  </p>
+
+
