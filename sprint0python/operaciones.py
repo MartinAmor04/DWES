@@ -1,12 +1,15 @@
-print("Introduce el primer número")
-n1= int (input());
-print("Introduce el segundo número")
-n2= int (input());
+n1=0
+n2=0
 
-print("Suma",(n1+n2))
-print("Resta",(n1-n2))
-print("Multiplicación",(n1*n2))
-if(n1!=0):
-    print("Division",(n1/n2))
-else:
-    print("No se permite divisiones entre 0")
+def suma(n1, n2):
+    return n1 + n2
+
+def resta(n1, n2):
+    return n1 - n2
+
+def multiplicacion(n1, n2):
+    return n1 * n2
+
+def division(n1, n2):
+    return n1 / n2
+
