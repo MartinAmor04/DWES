@@ -1,9 +1,32 @@
+<<<<<<< HEAD
+from io import BytesIO
 from tkinter import  ttk
 import tkinter as tk
+from tkinter.tix import IMAGETEXT
+=======
+from tkinter import  ttk
+import tkinter as tk
+>>>>>>> 0c6f7e85c236d0bb398b44c6941d32e1b1be55ba
 from cell import Cell
 from tkinter import messagebox
 from PIL import Image, ImageTk
 from detail_window import DetailWindow
+<<<<<<< HEAD
+import requests
+import threading
+import _thread
+
+class MainWindow():
+  
+    def __init__(self, root,json_data):
+        self.root=root
+        #Inicializamos las imágenes
+        
+        for diccionario  in json_data:
+            self.cells=Cell[json_data.get("name"),json_data.get("description"),json_data.get("image_url")]
+
+       
+=======
 
 class MainWindow():
     #llamamos a la nueva ventana, y le enviamos la información
@@ -23,6 +46,7 @@ class MainWindow():
             Cell("Imagen 4 ", "C:\\msys64\\home\\marti\\DWES\\sprint1tkinter\\catalog\\data\\unedited\\the lighthouse.jpg", "Una remota y misteriosa isla de Nueva Inglaterra en la década de 1890. El veterano farero Thomas Wake (Willem Dafoe) y su joven ayudante Ephraim Winslow (Robert Pattinson) deberán convivir durante cuatro semanas. Su objetivo será mantener el faro en buenas condiciones hasta que llegue el relevo que les permita volver a tierra. Pero las cosas se complicarán cuando surjan conflictos por jerarquías de poder entre ambos"),
             Cell("Imagen 5", "C:\\msys64\\home\\marti\\DWES\\sprint1tkinter\\catalog\\data\\unedited\\the lobster.jpg", "En un futuro cercano los solteros no tienen cabida en la sociedad. Por esta razón, todos son arrestados y llevados a un hotel donde tienen 45 días para conocer a alguien y enamorarse de por vida. Si no lo consiguen, serán transformados en el animal que ellos escojan. David llega al hotel con su hermano, que se ha convertido en perro. El joven no encuentra una persona con quien empezar una relación y se escapa al bosque con un grupo de disidentes.")
         ]
+>>>>>>> 0c6f7e85c236d0bb398b44c6941d32e1b1be55ba
 
         for i, cell in enumerate(self.cells):
             label= ttk.Label(root, image=cell.image_tk, text=cell.title, compound=tk.BOTTOM)
@@ -30,5 +54,18 @@ class MainWindow():
             label.bind("<Button-1>", lambda event, celda = cell: self.onButtonClicked(celda))
 
 
+<<<<<<< HEAD
+        self.thread=threading.Thread(target=self.fetch_json_data)
+        self.thread.start()
+
+
+    def load_image_from_url(self,url):
+        response = requests.get(url)
+        img_data = Image.open(BytesIO(response.content))
+        img=IMAGETEXT.PhotoImage(img_data)
+        Cell(img)
+    
+=======
    
         
+>>>>>>> 0c6f7e85c236d0bb398b44c6941d32e1b1be55ba
