@@ -1,5 +1,11 @@
 
+from ast import main
+import json
 import tkinter as tk
+
+import requests,threading
+
+from mainWindow import MainWindow
 
 
 class LoadWindow:
@@ -24,8 +30,8 @@ class LoadWindow:
 
         self.update_progress_circle()
 
-    #    self.thread = threading.Thread(target=self.fetch_json_data)
-    #    self.thread.start()
+        self.thread = threading.Thread(target=self.fetch_json_data)
+        self.thread.start()
 
 
     def draw_progress_circle(self,progress):
@@ -47,3 +53,24 @@ class LoadWindow:
 
         self.draw_progress_circle(self.progress)
         self.root.after(1,self.update_progress_circle)
+    
+    def fetch_json_data(self):
+        response = requests.get("https://raw.githubusercontent.com/MartinAmor04/DWES/main/Ejercicio%202.1")
+        if response.status_code==200:
+            json_data = response.json()
+            self.finished=True
+            print(response.json())
+    def check_thread(self):
+        if self.finished:
+            self.root.destroy()
+            self.launch_main_window(self.json_data)
+        else:
+            self.root.after(100, self.check_thread)
+
+    def launch_main_window(json_data):
+        root=tk.Tk()
+        app=MainWindow(root, json_data)
+        root.mainloop()
+        
+
+        
