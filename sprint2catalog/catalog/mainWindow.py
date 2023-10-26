@@ -1,10 +1,11 @@
+from tkinter import messagebox
 import requests
 from io import BytesIO
 import tkinter as tk
 from PIL import Image, ImageTk 
 from cell import Cell
 from detail_window import DetailWindow
-from tkinter import Label
+from tkinter import Label, Menu
 
 
     
@@ -20,6 +21,9 @@ class MainWindow():
 
     def on_button_clicked(self, name, description, image):
         detail_window = DetailWindow(self.root, name, description, image)
+    
+    def mostrar_acerca_de(self):
+        messagebox.showinfo("Acerca de", "Soy yo")
 
     def __init__(self, root, json_data):
         
@@ -28,7 +32,7 @@ class MainWindow():
         root.title("MainWindow")
         self.cells = []
 
-        #Centrar la ventana
+        #Centrar la self.root
         x = (self.root.winfo_screenwidth() - self.root.winfo_reqwidth()) / 2 
         y = (self.root.winfo_screenheight() - self.root.winfo_reqheight()) / 2 
         self.root.geometry(f"+{int(x)}+{int(y)}")
@@ -52,4 +56,12 @@ class MainWindow():
             label.grid(row=0, column=len(labels))
             label.bind("<Button-1>", lambda event, cell=cell, name=name, description=description, image=image: self.on_button_clicked(name, description, image))
             labels.append(label)
-    
+            
+        # Crear un menú
+        menu_bar = Menu(root)
+        root.config(menu=menu_bar)
+
+        # Crear el menú 'Ayuda' y su elemento 'Acerca de'
+        menu_ayuda = Menu(menu_bar, tearoff=0)
+        menu_ayuda.add_command(label="Acerca de", command=self.mostrar_acerca_de)
+        menu_bar.add_cascade(label="Ayuda", menu=menu_ayuda)
