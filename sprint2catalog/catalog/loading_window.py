@@ -33,13 +33,8 @@ class LoadWindow:
 
         self.thread = threading.Thread(target=self.fetch_json_data) #Guardamos datos en el thread
         self.thread.start() #Comenzamos el thread
-        
-        self.check_thread() #Comprobamos estado del thread
-        
-        self.update_progress_circle()
-        
-        self.thread = threading.Thread(target=self.fetch_json_data)
-        self.thread.start()      
+        self.update_progress_circle() #Comprobamos estado del thread 
+        self.check_thread()    
 
 
 
@@ -65,7 +60,6 @@ class LoadWindow:
         if response.status_code == 200:
             self.json_data = response.json()
             self.finished=True
-            print(response.json())
 
     def launch_main_window(self,json_data):
         root=Tk()
@@ -73,7 +67,7 @@ class LoadWindow:
         root.mainloop()    
 
     def check_thread(self):
-        if (self.finished):
+        if self.finished:
             self.root.destroy()
             self.launch_main_window(self.json_data)
         else:
