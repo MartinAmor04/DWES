@@ -1,0 +1,17 @@
+
+[
+    {
+        "dificultad": "Facil",
+        "palabras": ["sol", "mar", "rio", "hogar", "mesa", "pato", "lago", "flor", "pez", "pais"]
+    },
+    {
+        "dificultad": "Normal",
+        "palabras": ["pajaro", "guitarra", "elefante", "neblina", "manzana", "caballo", "ordenador", "arboleda", "ventana", "extintor"]
+    },
+    {
+        "dificultad": "Dificil",
+        "palabras": ["universidad", "asiaticos", "autonomia", "paraplejico", "mitocondria", "anticonstitucionalmente", "oftalmologo", "artropodo", "inconstitucionalidad", "desproporcionadamente"]
+    }
+]
+
+
