@@ -4,11 +4,7 @@ import tkinter as tk
 from tkinter import messagebox
 from PIL import Image, ImageTk
 import random
-
 import requests
-
-# Aquí debes cargar las palabras desde un archivo JSON en GitHub
-# y realizar otras configuraciones necesarias
 
 def cargar_JSON_imagenes():
     try:
@@ -25,7 +21,6 @@ def cargar_JSON_imagenes():
         return None
 
 
-# Aquí debes cargar las imágenes desde GitHub y realizar otras configuraciones necesarias
 
 class JuegoAhorcado:
     def __init__(self, master, dificultad):
@@ -34,7 +29,7 @@ class JuegoAhorcado:
         self.errores = 0
         self.json_data_imagenes = cargar_JSON_imagenes()
         self.imagenes_ahorcado = {
-           0: self.load_and_resize_image("https://raw.githubusercontent.com/MartinAmor04/DWES/main/ahorcado_ejer_extra/ahorcado_imagen_1.jpg", 200, 200),
+            0: self.load_and_resize_image("https://raw.githubusercontent.com/MartinAmor04/DWES/main/ahorcado_ejer_extra/ahorcado_imagen_1.jpg", 200, 200),
             1: self.load_and_resize_image("https://raw.githubusercontent.com/MartinAmor04/DWES/main/ahorcado_ejer_extra/ahorcado_imagen_2.jpg", 200, 200),
             2: self.load_and_resize_image("https://raw.githubusercontent.com/MartinAmor04/DWES/main/ahorcado_ejer_extra/ahorcado_imagen_3.jpg", 200, 200),
             3: self.load_and_resize_image("https://raw.githubusercontent.com/MartinAmor04/DWES/main/ahorcado_ejer_extra/ahorcado_imagen_4.jpg", 200, 200),
@@ -114,7 +109,6 @@ class JuegoAhorcado:
                 else:
                     self.errores += 1
                     self.label_intentos.config(text=f'Intentos: {self.errores}/6')
-                    # Aquí debes añadir la lógica para actualizar la imagen del ahorcado
                 self.label_letras_intentadas.config(text=f'Letras intentadas: {", ".join(self.letras_intentadas)}')
                 self.verificar_estado_juego()
         else:
@@ -135,7 +129,7 @@ class JuegoAhorcado:
             self.imagen_label.img = imagen  # Mantén una referencia a la imagen para evitar que se elimine de la memoria
             self.imagen_label.config(image=imagen)
     
-    @staticmethod
+    
     def load_and_resize_image(url, width, height):
         response = requests.get(url)
         image_data = Image.open(BytesIO(response.content))
