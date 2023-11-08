@@ -9,7 +9,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-
+//visualiza la ventana detail_activity.xml
 public class DetailActivity extends AppCompatActivity {
 
     private Button button;
