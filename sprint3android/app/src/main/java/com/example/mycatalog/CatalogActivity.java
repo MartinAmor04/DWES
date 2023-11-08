@@ -9,8 +9,8 @@ import android.view.View;
 import android.widget.Button;
 
 public class CatalogActivity extends AppCompatActivity {
-private Button boton;
-private Activity activity=this;
+    private Button boton;
+    private Activity activity=this;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
