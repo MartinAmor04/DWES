@@ -40,6 +40,9 @@ public class FilmViewHolder extends RecyclerView.ViewHolder {
             public void onClick(View v) {
                 Context context = v.getContext();
                 Intent intent = new Intent(context, DetailActivity.class);
+                intent.putExtra("name", filmData.getName());
+                intent.putExtra("description", filmData.getDescription());
+                intent.putExtra("image_url", filmData.getImage_url());
 
                 // Aquí puedes agregar datos adicionales al intent, si es necesario.
                 // Por ejemplo, puedes pasar el ID de la película para recuperar más detalles en la pantalla de detalles.

@@ -13,7 +13,7 @@ public class FilmData {
         return name;
     }
 
-    public String getDescription() { // Corregir el nombre del método a getDescription
+    public String getDescription() {
         return description;
     }
 
