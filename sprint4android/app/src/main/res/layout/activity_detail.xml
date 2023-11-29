@@ -41,6 +41,7 @@
         android:layout_marginEnd="10dp"
         android:layout_marginStart="10dp"
         android:textAlignment="center"
+        style="@style/EstiloTitulo"
         android:text="Prueba 2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

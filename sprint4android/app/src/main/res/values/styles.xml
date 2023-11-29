@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Estilo de la aplicación -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Color del fondo -->
+        <item name="android:windowBackground">@color/colorFondo</item>
+    </style>
+
+
+    <!-- Estilo para los títulos de texto -->
+    <style name="EstiloTitulo">
+        <item name="android:textSize">30sp</item> <!-- Tamaño del texto -->
+        <item name="android:textColor">@color/colorTitulo</item> <!-- Color del texto -->
+        <item name="android:textStyle">italic</item> <!-- Cursiva -->
+    </style>
+
+    <!-- Estilo de los botones -->
+    <style name="BotonEstilo" parent="Widget.AppCompat.Button">
+        <!-- Modificar el estilo de los botones -->
+        <item name="android:background">@color/colorBoton</item>
+        <item name="android:textColor">@android:color/white</item> <!-- Color del texto del botón -->
+        <item name="android:textSize">18sp</item> <!-- Tamaño del texto del botón -->
+        <item name="android:layout_width">50dp</item> <!-- Ancho del botón -->
+        <item name="android:layout_height">50dp</item> <!-- Altura del botón -->
+    </style>
+
+
+</resources>
