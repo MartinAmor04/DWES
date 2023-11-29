@@ -23,27 +23,28 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
-    private Activity activity=this;
+    private Activity activity = this;
     private RecyclerView recyclerView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        recyclerView = findViewById(R.id.recycler_view); // Aquí obtenemos una referencia al RecyclerView desde el diseño
+        recyclerView = findViewById(R.id.recycler_view); // Obtener una referencia al RecyclerView desde el diseño
 
-        JsonArrayRequest request = new JsonArrayRequest( // Creamos una solicitud GET usando Volley para obtener un JSONArray de nuestra URL.
+        JsonArrayRequest request = new JsonArrayRequest(
                 Request.Method.GET,
                 "https://raw.githubusercontent.com/MartinAmor04/DWES/main/Ejercicio%202.1",
                 null,
                 new Response.Listener<JSONArray>() {
                     @Override
-                    public void onResponse(JSONArray response) {  // Procedemos a procesar la respuesta JSON y crear una lista de objetos FilmData
-                        // donde estarán los datos de la url.
+                    public void onResponse(JSONArray response) {
+                        // Procesar la respuesta JSON y crear una lista de objetos FilmData con los datos de la URL.
 
                         List<FilmData> allThefilms = new ArrayList<>();
                         for (int i = 0; i < response.length(); i++) {
-                            try { // Convertimos cada objeto JSON en un objeto FilmData.
+                            try {
                                 JSONObject film = response.getJSONObject(i);
                                 FilmData data = new FilmData(film);
                                 allThefilms.add(data);
@@ -52,10 +53,10 @@ public class MainActivity extends AppCompatActivity {
                             }
                         }
 
-                        // Creamos un adaptador con la lista de datos y la actividad asociada.
+                        // Crear un adaptador con la lista de datos y la actividad asociada.
                         FilmRecyclerViewAdapter adapter = new FilmRecyclerViewAdapter(allThefilms, activity);
 
-                        // Configuramos el RecyclerView con el adaptador y un LinearLayoutManager.
+                        // Configurar el RecyclerView con el adaptador y un LinearLayoutManager.
                         recyclerView.setAdapter(adapter);
                         recyclerView.setLayoutManager(new LinearLayoutManager(activity));
                     }
@@ -63,12 +64,13 @@ public class MainActivity extends AppCompatActivity {
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-                        // En el siguiente método y la línea del mismo, manejamos los errores de la solicitud y mostramos un Toast con este.
+                        // Manejar los errores de la solicitud y mostrar un Toast con el mensaje de error.
                         Toast.makeText(activity, error.getMessage(), Toast.LENGTH_SHORT).show();
                     }
                 }
         );
-        // Una vez finalizado lo anterior, agregamos la solicitud a la cola de Volley para su procesamiento.
+
+        // Agregar la solicitud a la cola de Volley para su procesamiento.
         RequestQueue queue = Volley.newRequestQueue(this);
         queue.add(request);
     }

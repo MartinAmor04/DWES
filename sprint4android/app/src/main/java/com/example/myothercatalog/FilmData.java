@@ -9,23 +9,33 @@ public class FilmData {
     private String description;
     private String image_url;
 
-    public String getName() {return name;}
-    public String getdescription() {return description;}
-    public String getImage_url() {return image_url;}
-
-    public FilmData(String name, String description, String image_url){
-        this.name=name;
-        this.description=description;
-        this.image_url=image_url;
+    public String getName() {
+        return name;
     }
 
-    public FilmData(JSONObject json){
-        try{
+    public String getDescription() { // Corregir el nombre del método a getDescription
+        return description;
+    }
+
+    public String getImage_url() {
+        return image_url;
+    }
+
+    // Constructor que recibe los datos directamente
+    public FilmData(String name, String description, String image_url) {
+        this.name = name;
+        this.description = description;
+        this.image_url = image_url;
+    }
+
+    // Constructor que recibe un objeto JSON y extrae los datos
+    public FilmData(JSONObject json) {
+        try {
             this.name = json.getString("name");
             this.description = json.getString("description");
             this.image_url = json.getString("image_url");
-        }catch (JSONException e){ e.printStackTrace(); }
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
     }
-
 }
-
